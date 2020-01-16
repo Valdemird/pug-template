@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    link(href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet")
+    style
+      include template.css
+  body
+    div.flexContent
+      h1 #{name}
+
+      p Reporte ROI del proyecto Datacenter Bogota del dia 27/12/2019.
+      table
+          tr
+            th Indice
+            each column in columns
+              th #{column}
+            each row,index in rows
+              tr
+                th #{index + 1}
+                each value in row
+                  th #{value}
+               
+      
+      p Reporte realizado por Asesor Comercial Andres Felipe Zapata.
