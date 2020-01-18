@@ -2,9 +2,8 @@
 body{
   font-family: 'Roboto', sans-serif;
   color:#4e4e4e;
-  margin-top: 23px;
+  margin: 0;
 }
-
 
 h1 {
   text-align: center;
@@ -23,26 +22,276 @@ table {
     font-size: 12px;
     background-color: #f5f7fb;
     font-family: arial, sans-serif;
-    border-collapse: collapse;
     width: 100%;
     align-self: center;
+    border-bottom: 1px solid #fd941b; 
   }
   
   td, th {
-    border: 1px solid #f3f5f9;
-    text-align: left;
-    padding: 8px;
+    text-align: center;
+    padding: 15px 10px;
+
+  }
+
+  th{
+    background-color: #fd941b; 
+    color: white;
+  }
+
+  th:first-child{
+    width: 3%;
   }
   
+  
   tr:nth-child(even) {
+    background-color: white
+  }
+
+  tr{
     background-color: #dedede;
   }
 
   .flexContent{
-    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
-    width: 80%;
+    width: 100%;
   }
+
+  .header-content{
+    display: flex;
+    width: 100%;
+  }
+
+  .header-left-content{
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    line-height: 1.7;
+    padding: 0 0 20px 5%;
+    color: black;
+  }
+
+  .header-right-content{
+    border-bottom-left-radius: 16px;
+    background-color: #652D52;
+    color: white;
+    display: flex;
+    width: 42%;
+    flex-direction: column;
+    padding: 0 5% 20px 3%;
+  }
+
+  .title-service{ 
+    font-size: 25px;
+    font-weight: bold;
+    height:100px;
+    display: flex;
+    align-items: center;
+  }
+
+  .factura-content{ 
+    display: flex;
+    width: 100%;
+  }
+
+  .factura-left-container,.factura-right-container{ 
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    line-height: 1.7;
+  }
+
+  .factura-right-container{ 
+    align-items: flex-end;
+  }
+
+  .factura-subtitle{ 
+    font-size: 14px;
+    margin: 15px 0;
+  }
+
+  .factura-important-info{ 
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .factura-content{ 
+    font-size: 14px;
+  }
+
+  .facturador{ 
+    font-weight: bold;
+    font-size: 14px;
+    margin: 15px 0;
+  }
+
+  .facturador-info{ 
+    font-size: 14px;
+  }
+
+  .logo-container{ 
+    height: 100px;
+  }
+
+  .body-content{ 
+    width: 90%;
+    margin: 20px auto 0 auto;
+  }
+
+  .aditional-info-container{
+    display: flex;
+    width: 100%;
+    margin: 50px 0;
+  }
+
+  .observaciones-container{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    line-height: 1.4;
+  }
+
+  .aditional-info-subtitle{
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .observaciones-big-content{
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+
+  .observaciones-content span{
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .observaciones-content{
+    font-size: 14px;
+  }
+
+  .price-info-container{
+    width: 20%;
+    padding: 0 5% 0 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .price-item-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  .price-item-amount{
+    font-weight: bold;
+    margin-left: 30px;
+  }
+
+  .total-price-container{
+    width: 20%;
+    background-color: #fd941b; 
+    color: white;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .total-price-text{
+    font-size: 16px;
+  }
+
+  .total-price-amount{
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .terminos-container,.transfrencias-container {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .transfrencias-container{
+    margin-bottom: 70px;
+  }
+
+  .terminos-title,.transferencias-title{
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+
+  .terminos-item span, .firma-info{
+    font-weight: bold;
+  }
+
+  .firmas-contianer{
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+
+  .firma-item{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    font-size: 14px;
+    line-height: 1.8;
+    align-items: center;
+  }
+
+  .footer-container{
+    width: 95%;
+    background-color: #652D52;
+    color: white;
+    display: flex;
+    border-top-right-radius: 16px;
+    padding: 20px 0 40px 0;
+    justify-content: center;
+}
+
+  .footer-content{
+    font-size: 14px;
+  }
+
+
+  .descripcion-item-container{
+    line-height: 1.5;
+    margin-right: 50px;
+    text-align: left;
+  }
+
+  .descripcion-item{
+    margin-bottom: 20px;
+  }
+
+  .materiales-container,.valor-total{
+    margin-bottom: 20px;
+    height: 50px;
+  }
+
+  td{
+    max-width: 20vw;
+    vertical-align: top;
+  }
+
+  .valor-total{
+    font-weight: bold;
+  }
+
+  .material-unit{
+    color: #cccc;
+  }
+
+
+
+
