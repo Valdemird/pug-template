@@ -5,20 +5,141 @@ html
     style
       include template.css
   body
-    div.flexContent
-      h1 #{name}
 
-      p Reporte ROI del proyecto Datacenter Bogota del dia 27/12/2019.
-      table
-          tr
-            th Indice
-            each column in columns
-              th #{column}
-            each row,index in rows
+
+  - var tableHeader = ['Descripción del Item','Materiales','Cant.','Valor unit.', 'Valor total']
+
+    div.flexContent
+
+      //HEADER
+      div.header-content
+
+        //HEADER LEFT CONTENT
+        div.header-left-content
+
+          div.logo-container
+          img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/logo.png?alt=media&token=00b1f3d4-3065-4ec4-a482-5625724660d5' alt='login' style='width:115px; height:50px;')
+          div.facturador Facturado por:
+          div.facturador-info JUSTO PAGO S.A.S
+          div.facturador-info NIT.900970789-8
+          div.facturador-info Calle 13 #65c-30 Cali,Colombia
+          div.facturador-info (+57)(2)3480375
+          div.facturador-info www.justopago.com.co
+
+
+        //HEADER RIGHT CONTENT
+        div.header-right-content
+          div.title-service SERVICIO #{serviceId}
+
+          div.factura-content
+
+            div.factura-left-container
+              div.factura-subtitle Facturado a:
+              div.factura-important-info #{user.name}
+              div.factura-content CC #{user.id}
+              div.factura-content #{user.phone}
+              div.factura-content  #{property.direction}, Colombia 
+              div.factura-content  #{user.email}
+              
+            div.factura-right-container
+              div.factura-subtitle Fecha de factura:
+              div.factura-important-info #{currentDate}
+
+      div.body-content
+
+        table(cellspacing=0)
+            //TEABLE HEADER
+            tr
+              th No.
+              each column in tableHeader
+                th #{column}
+            each item,index in items
               tr
-                th #{index + 1}
-                each value in row
-                  th #{value}
-               
-      
-      p Reporte realizado por Asesor Comercial Andres Felipe Zapata.
+                td #{index+1}
+                td 
+                  div.descripcion-item-container 
+                    div.descripcion-item #{item.descripcionItem}
+                    each i in item.stepsItem
+                      div.step-item - #{i}
+                td 
+                  each i in item.materiales 
+                    div.materiales-container 
+                      div.material-name #{i[0]}
+                      div.material-unit #{i[1]}
+                td
+                  each i in item.cant 
+                    div.materiales-container #{i}
+                td
+                  each i in item.valoresUnit
+                    div.materiales-container $#{i}
+                td
+                  each i in item.valoresTotal
+                    div.valor-total $#{i}          
+                
+        //ADITIONAL INFO
+        div.aditional-info-container
+
+          //OBSERVACIONES INFO
+          div.observaciones-container
+            div.aditional-info-subtitle Observaciones:
+            div.observaciones-big-content De acuerdo a nuestra razón social y objeto comercial para retenciones, en caso tal apliquen las siguientes tarifas:
+            div.observaciones-content #[span Reteica:] 3.3 por $1.000
+            div.observaciones-content #[span Retefuente:] 2%
+          
+          //PRICE INFO
+          div.price-info-container
+
+            div.price-item-container
+              div.price-item-title Total Bruto:
+              div.price-item-amount #{total}
+
+            div.price-item-container
+              div.price-item-title Subtotal: 
+              div.price-item-amount #{subtotal}
+
+            div.price-item-container
+              div.price-item-title Base AIU: 
+              div.price-item-amount $8,284
+
+            div.price-item-container
+              div.price-item-title IVA 19%:
+              div.price-item-amount $0
+
+            div.price-item-container
+              div.price-item-title Imprevistos:
+              div.price-item-amount $0
+          
+          //TOTAL PRICE
+          div.total-price-container
+            div.total-price-text TOTAL A PAGAR
+            dvi.total-price-amount #{total}
+
+        //TERMINOS INFO
+        div.terminos-container 
+          div.terminos-title TÉRMINOS DE NEGOCIACIÓN
+          div.terminos-item #[span - Vigencia de la cotización:] Treinta (30) días calendario.
+          div.terminos-item #[span - Garantía del servicio prestado:] 6 cantidad de tiempo
+          div.terminos-item #[span - Forma de pago:] Transferencia electrónica anticipo del 60% y el otro 40% a la entrega y satisfacción del cliente.
+
+        //TRANSFERENCIA INFO
+        div.transfrencias-container 
+          div.transferencias-title TRANSFERENCIAS
+          div.transferencias-item Cuenta de ahorros Davivienda
+          div.transferencias-item 0570 01657 0390290
+
+        //FIRMAS
+        div.firmas-contianer 
+          div.firma-item 
+            div.firma-name Jonh Doe
+            div.firma-info ELABORADO POR
+          
+          div.firma-item 
+            div.firma-name Jonh Doe
+            div.firma-info RECIBIDO POR
+
+      div.footer-container 
+        div.footer-content JUSTO PAGO | CALLE 1D # 56-175 | 374778 - 3185946378 CALI
+
+
+            
+
