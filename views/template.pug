@@ -5,20 +5,194 @@ html
     style
       include template.css
   body
-    div.flexContent
-      h1 #{name}
 
-      p Reporte ROI del proyecto Datacenter Bogota del dia 27/12/2019.
-      table
-          tr
-            th Indice
-            each column in columns
-              th #{column}
-            each row,index in rows
-              tr
-                th #{index + 1}
-                each value in row
-                  th #{value}
-               
-      
-      p Reporte realizado por Asesor Comercial Andres Felipe Zapata.
+  - var itemNumber = 1
+  - var tableHeader = ['Descripción del Item','Materiales','Cant.','Valor unit.', 'Valor total']
+  - var descripcionItem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  - var stepsItem = ['preparar losa','preparar losa','preparar losa']
+  - var materiales = [['Impermiabilizante','en galones'],['Impermiabilizante','en galones'],['Impermiabilizante','en galones']]
+  - var cant = [3,3,3]
+  - var valoresUnit = ['$100.000','$100.000','$100.000']
+  - var valoresTotal = ['$100.000','$100.000','$100.000']
+
+    div.flexContent
+
+      //HEADER
+      div.header-content
+
+        //HEADER LEFT CONTENT
+        div.header-left-content
+
+          div.logo-container
+          //AQUI VA EL LOGO
+          div.facturador Facturado por:
+          div.facturador-info JUSTO PAGO S.A.S
+          div.facturador-info NIT.900970789-8
+          div.facturador-info Calle 13 #65c-30 Cali,Colombia
+          div.facturador-info (+57)(2)3480375
+          div.facturador-info www.justopago.com.co
+
+
+        //HEADER RIGHT CONTENT
+        div.header-right-content
+          div.title-service SERVICIO #87654
+
+          div.factura-content
+
+            div.factura-left-container
+              div.factura-subtitle Facturado a:
+              div.factura-important-info UNISA INMOBILIARIA
+              div.factura-content NIT. 90019385754
+              div.factura-content (5)(2)458 394830
+              div.factura-content Calle 25N #34 Cali, Colombia 
+              div.factura-content correoelectronico@gmail.co
+              
+            div.factura-right-container
+              div.factura-subtitle Fecha de factura:
+              div.factura-important-info Diciembre 29. 2020 
+
+      div.body-content
+
+        table(cellspacing=0)
+            //TEABLE HEADER
+            tr
+              th No.
+              each column in tableHeader
+                th #{column}
+            //NEW ITEM
+            tr
+              td #{itemNumber}
+              td 
+                div.descripcion-item-container 
+                  div.descripcion-item #{descripcionItem}
+                  each i in stepsItem
+                    div.step-item - #{i}
+              td 
+                each i in materiales 
+                  div.materiales-container 
+                    div.material-name #{i[0]}
+                    div.material-unit #{i[1]}
+              td
+                each i in cant 
+                  div.materiales-container #{i}
+              td
+                each i in valoresUnit
+                  div.materiales-container #{i}
+              td
+                each i in valoresTotal
+                  div.valor-total #{i}
+
+            //NEW ITEM
+            tr
+              td #{itemNumber}
+              td 
+                div.descripcion-item-container 
+                  div.descripcion-item #{descripcionItem}
+                  each i in stepsItem
+                    div.step-item - #{i}
+              td 
+                each i in materiales 
+                  div.materiales-container 
+                    div.material-name #{i[0]}
+                    div.material-unit #{i[1]}
+              td
+                each i in cant 
+                  div.materiales-container #{i}
+              td
+                each i in valoresUnit
+                  div.materiales-container #{i}
+              td
+                each i in valoresTotal
+                  div.valor-total #{i}
+            
+            //NEW ITEM
+            tr
+              td #{itemNumber}
+              td 
+                div.descripcion-item-container 
+                  div.descripcion-item #{descripcionItem}
+                  each i in stepsItem
+                    div.step-item - #{i}
+              td 
+                each i in materiales 
+                  div.materiales-container 
+                    div.material-name #{i[0]}
+                    div.material-unit #{i[1]}
+              td
+                each i in cant 
+                  div.materiales-container #{i}
+              td
+                each i in valoresUnit
+                  div.materiales-container #{i}
+              td
+                each i in valoresTotal
+                  div.valor-total #{i}
+              
+                
+        //ADITIONAL INFO
+        div.aditional-info-container
+
+          //OBSERVACIONES INFO
+          div.observaciones-container
+            div.aditional-info-subtitle Observaciones:
+            div.observaciones-big-content De acuerdo a nuestra razón social y objeto comercial para retenciones, en caso tal apliquen las siguientes tarifas:
+            div.observaciones-content #[span Reteica:] 3.3 por $1.000
+            div.observaciones-content #[span Retefuente:] 2%
+          
+          //PRICE INFO
+          div.price-info-container
+
+            div.price-item-container
+              div.price-item-title Total Bruto:
+              div.price-item-amount $436,020
+
+            div.price-item-container
+              div.price-item-title Subtotal: 
+              div.price-item-amount $436,020
+
+            div.price-item-container
+              div.price-item-title Base AIU: 
+              div.price-item-amount $8,284
+
+            div.price-item-container
+              div.price-item-title IVA 19%:
+              div.price-item-amount $0
+
+            div.price-item-container
+              div.price-item-title Imprevistos:
+              div.price-item-amount $0
+          
+          //TOTAL PRICE
+          div.total-price-container
+            div.total-price-text TOTAL A PAGAR
+            dvi.total-price-amount $444,304
+
+        //TERMINOS INFO
+        div.terminos-container 
+          div.terminos-title TÉRMINOS DE NEGOCIACIÓN
+          div.terminos-item #[span - Vigencia de la cotización:] Treinta (30) días calendario.
+          div.terminos-item #[span - Garantía del servicio prestado:] 6 cantidad de tiempo
+          div.terminos-item #[span - Forma de pago:] Transferencia electrónica anticipo del 60% y el otro 40% a la entrega y satisfacción del cliente.
+
+        //TRANSFERENCIA INFO
+        div.transfrencias-container 
+          div.transferencias-title TRANSFERENCIAS
+          div.transferencias-item Cuenta de ahorros Davivienda
+          div.transferencias-item 0570 01657 0390290
+
+        //FIRMAS
+        div.firmas-contianer 
+          div.firma-item 
+            div.firma-name Jonh Doe
+            div.firma-info ELABORADO POR
+          
+          div.firma-item 
+            div.firma-name Jonh Doe
+            div.firma-info RECIBIDO POR
+
+      div.footer-container 
+        div.footer-content JUSTO PAGO | CALLE 1D # 56-175 | 374778 - 3185946378 CALI
+
+
+            
+
