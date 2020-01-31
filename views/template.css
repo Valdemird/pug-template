@@ -392,6 +392,8 @@ table {
   flex-direction: column;
   color: #652D52;
   font-size: 12px;
+  justify-content: center;
+  margin-left: 5px;
 }
 
 .service-text-title{
@@ -408,7 +410,7 @@ table {
 }
 
 @page {
-  margin: 12mm 0 0 0;
+  margin: 12mm 0 12mm 0;
 }
 
 
