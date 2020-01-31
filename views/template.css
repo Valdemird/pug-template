@@ -1,8 +1,8 @@
-
-body{
+html,body{
+  size: A4;
   font-family: 'Roboto', sans-serif;
   color:#4e4e4e;
-  margin: 0;
+  margin:  auto;
 }
 
 h1 {
@@ -20,35 +20,74 @@ table {
     border-radius: 5px;
     margin-top: 20px;
     font-size: 12px;
-    background-color: #f5f7fb;
+    /*background-color: #f5f7fb;*/
     font-family: arial, sans-serif;
     width: 100%;
     align-self: center;
-    border-bottom: 1px solid #fd941b; 
+    /*border-bottom: 1px solid #fd941b; */
+    border-spacing: 0;
+    background-color: white;
   }
   
-  td, th {
+  td{
     text-align: center;
     padding: 15px 10px;
 
   }
 
   th{
-    background-color: #fd941b; 
-    color: white;
+    /*background-color:  #652D52; */
+    background-color: white;
+    padding: 0;
   }
 
   th:first-child{
-    width: 3%;
+    width: 6%;
+    
   }
-  
+
+  .table-header-container{
+    background-color:  #652D52; 
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .table-header-container-right{
+    background-color:  #652D52; 
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+/*
+  .table-header-container:first-child{
+    border-top-left-radius: 10px;
+  }
+
+  .table-header-container-right:last-child{
+    border-top-right-radius: 10px;
+  }
+ */ 
   
   tr:nth-child(even) {
-    background-color: white
+    background-color: #F1F1F1
   }
 
   tr{
-    background-color: #dedede;
+    background-color: #D8D2D5;
+  
+  }
+
+  tr{
+    color: #652D52;
   }
 
   .flexContent{
@@ -65,7 +104,7 @@ table {
 
   .header-left-content{
     display: flex;
-    width: 45%;
+    width: 35%;
     flex-direction: column;
     line-height: 1.7;
     padding: 0 0 20px 5%;
@@ -74,18 +113,20 @@ table {
 
   .header-right-content{
     border-bottom-left-radius: 16px;
-    background-color: #652D52;
+    border-top-left-radius: 16px;
+    background-color: #fd941b;
     color: white;
     display: flex;
-    width: 42%;
+    width: 52%;
     flex-direction: column;
     padding: 0 5% 20px 3%;
+    height: fit-content;
   }
 
   .title-service{ 
     font-size: 25px;
     font-weight: bold;
-    height:100px;
+    height:65px;
     display: flex;
     align-items: center;
   }
@@ -93,6 +134,7 @@ table {
   .factura-content{ 
     display: flex;
     width: 100%;
+    font-size: 14px;
   }
 
   .factura-left-container,.factura-right-container{ 
@@ -108,41 +150,51 @@ table {
 
   .factura-subtitle{ 
     font-size: 14px;
-    margin: 15px 0;
+    margin: 5px 0 5px 0;
   }
+
+  .factura-subtitle-supervisor{ 
+    font-size: 14px;
+    margin: 30px 0 5px 0;
+  }
+
 
   .factura-important-info{ 
     font-weight: bold;
     font-size: 14px;
   }
 
-  .factura-content{ 
-    font-size: 14px;
-  }
+
 
   .facturador{ 
     font-weight: bold;
     font-size: 14px;
     margin: 15px 0;
+    color: #652D52;
   }
 
   .facturador-info{ 
     font-size: 14px;
+    color:#652D52;
+    font-weight: normal;
   }
 
   .logo-container{ 
     height: 100px;
+    display: flex;
+    align-items: center;
   }
 
   .body-content{ 
     width: 90%;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 90px auto;
   }
 
   .aditional-info-container{
     display: flex;
     width: 100%;
     margin: 50px 0;
+    break-inside: avoid;
   }
 
   .observaciones-container{
@@ -213,7 +265,7 @@ table {
   }
 
   .terminos-container,.transfrencias-container {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     font-size: 14px;
@@ -250,13 +302,20 @@ table {
   }
 
   .footer-container{
-    width: 95%;
+    width: 100%;
     background-color: #652D52;
     color: white;
     display: flex;
+    /*padding: 20px 0 40px 0;*/
+    border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    padding: 20px 0 40px 0;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0px;
+    /*left: 10%;*/
+    height: 70px;
+    align-items: center;
 }
 
   .footer-content{
@@ -289,8 +348,72 @@ table {
   }
 
   .material-unit{
-    color: #cccc;
+    opacity: 0.5;
   }
+
+  use{
+    width: 50px;
+    height: 50px;
+  }
+
+  .print-top-padding {
+    margin-bottom: 150px;
+}
+
+.avoid-break{
+  break-inside: avoid;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.facturador-info {
+  display: flex;
+  width: 100%;
+}
+
+.service-info-main-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.service-info-container{
+  display: flex;
+}
+
+.service-text-container {
+  display: flex;
+  flex-direction: column;
+  color: #652D52;
+  font-size: 12px;
+}
+
+.service-text-title{
+  font-weight: bold;
+
+}
+
+.cotizacion-title{
+  font-size: 18px;
+  font-weight: bold;
+  color: #652D52;
+  text-align: center;
+  margin: 40px 0;
+}
+
+@page {
+  margin: 12mm 0 0 0;
+}
+
+
+
+
 
 
 
