@@ -6,10 +6,9 @@ html
       include template.css
   body
 
-
   - var tableHeader = ['Descripción del Item','Materiales','Cant.','Valor unit.', 'Valor total']
 
-    div.flexContent
+    div(classname='flexContent print-padding')
 
       //HEADER
       div.header-content
@@ -18,12 +17,15 @@ html
         div.header-left-content
 
           div.logo-container
-          img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/logo.png?alt=media&token=00b1f3d4-3065-4ec4-a482-5625724660d5' alt='login' style='width:115px; height:50px;')
-          div.facturador Facturado por:
-          div.facturador-info JUSTO PAGO S.A.S
-          div.facturador-info NIT.900970789-8
+            img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/logo.png?alt=media&token=00b1f3d4-3065-4ec4-a482-5625724660d5' alt='login' style='width:115px; height:50px;')
+          div.facturador JUSTO PAGO S.A.S
+            div.facturador-info NIT.900970789-8
           div.facturador-info Calle 13 #65c-30 Cali,Colombia
-          div.facturador-info (+57)(2)3480375
+          div.facturador-info 
+            div.icons-container 
+              img(src="https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fphone.png?alt=media&token=bbd7a171-3650-45af-b3b3-dc2033825e20" alt="")
+            div (+57)(2)3480375
+
           div.facturador-info www.justopago.com.co
 
 
@@ -37,22 +39,63 @@ html
               div.factura-subtitle Facturado a:
               div.factura-important-info #{user.name}
               div.factura-content CC #{user.id}
-              div.factura-content #{user.phone}
+              div.factura-content
+                div.icons-container 
+                  img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fcalendar.png?alt=media&token=5235cdc9-ace0-4152-a65d-699867467728')
+                div #{user.phone} 
+
               div.factura-content  #{property.direction}, Colombia 
               div.factura-content  #{user.email}
               
             div.factura-right-container
-              div.factura-subtitle Fecha de factura:
+              div.factura-subtitle Fecha de elaboración:
               div.factura-important-info #{currentDate}
+              div.factura-subtitle-supervisor Supervisor a cargo:
+              div.factura-important-info NOMBRE DEL SUPERVISOR
+              div.factura-subtitle CC del supervisor
 
       div.body-content
+
+        div.service-info-main-container
+
+          div.service-info-container 
+            div.icons-container 
+              img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fcalendar.png?alt=media&token=5235cdc9-ace0-4152-a65d-699867467728')
+            div.service-text-container 
+              div.service-text-title Fecha de visita
+              div.service-text-info 23/02/20
+          
+          div.service-info-container 
+            div.icons-container 
+              img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fcalendar.png?alt=media&token=5235cdc9-ace0-4152-a65d-699867467728')
+            div.service-text-container 
+              div.service-text-title Tiempo de ejecución
+              div.service-text-info 2 dias - 16 horas
+
+          div.service-info-container 
+            div.icons-container 
+              img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fcalendar.png?alt=media&token=5235cdc9-ace0-4152-a65d-699867467728')
+            div.service-text-container 
+              div.service-text-title Garantía
+              div.service-text-info 2 Meses
+
+          div.service-info-container 
+            div.icons-container 
+              img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fcalendar.png?alt=media&token=5235cdc9-ace0-4152-a65d-699867467728')
+            div.service-text-container 
+              div.service-text-title Tipo de urgencia
+              div.service-text-info Media
+
+        div.cotizacion-title Detalles de la Cotización
 
         table(cellspacing=0)
             //TEABLE HEADER
             tr
-              th No.
+              th 
+                div.table-header-container No.
               each column in tableHeader
-                th #{column}
+                th
+                  div.table-header-container-right #{column}
             each item,index in items
               tr
                 td #{index+1}
@@ -90,12 +133,16 @@ html
           div.price-info-container
 
             div.price-item-container
-              div.price-item-title Total Bruto:
-              div.price-item-amount #{total}
+              div.price-item-title Mano de obra:
+              div.price-item-amount $0
 
             div.price-item-container
               div.price-item-title Subtotal: 
               div.price-item-amount #{subtotal}
+
+            div.price-item-container
+              div.price-item-title Descuento: 
+              div.price-item-amount $0
 
             div.price-item-container
               div.price-item-title Base AIU: 
@@ -105,7 +152,7 @@ html
               div.price-item-title IVA 19%:
               div.price-item-amount $0
 
-            div.price-item-container
+            //div.price-item-container
               div.price-item-title Imprevistos:
               div.price-item-amount $0
           
@@ -115,30 +162,33 @@ html
             dvi.total-price-amount #{total}
 
         //TERMINOS INFO
-        div.terminos-container 
-          div.terminos-title TÉRMINOS DE NEGOCIACIÓN
-          div.terminos-item #[span - Vigencia de la cotización:] Treinta (30) días calendario.
-          div.terminos-item #[span - Garantía del servicio prestado:] 6 cantidad de tiempo
-          div.terminos-item #[span - Forma de pago:] Transferencia electrónica anticipo del 60% y el otro 40% a la entrega y satisfacción del cliente.
+        
+        div.avoid-break
+          div.terminos-container 
+            div.terminos-title TÉRMINOS DE NEGOCIACIÓN
+            div.terminos-item #[span - Vigencia de la cotización:] Treinta (30) días calendario.
+            //div.terminos-item #[span - Garantía del servicio prestado:] 6 cantidad de tiempo
+            div.terminos-item #[span - Forma de pago:] Transferencia electrónica anticipo del 60% y el otro 40% a la entrega y satisfacción del cliente.
 
-        //TRANSFERENCIA INFO
-        div.transfrencias-container 
-          div.transferencias-title TRANSFERENCIAS
-          div.transferencias-item Cuenta de ahorros Davivienda
-          div.transferencias-item 0570 01657 0390290
+          //TRANSFERENCIA INFO
+          div.transfrencias-container 
+            div.transferencias-title TRANSFERENCIAS
+            div.transferencias-item Cuenta de ahorros Davivienda
+            div.transferencias-item 0570 01657 0390290
 
         //FIRMAS
-        div.firmas-contianer 
-          div.firma-item 
-            div.firma-name Jonh Doe
-            div.firma-info ELABORADO POR
-          
-          div.firma-item 
-            div.firma-name Jonh Doe
-            div.firma-info RECIBIDO POR
+          div.firmas-contianer 
+            div.firma-item 
+              div.firma-name Jonh Doe
+              div.firma-info ELABORADO POR
+            
+            div.firma-item 
+              div.firma-name Jonh Doe
+              div.firma-info RECIBIDO POR
 
-      div.footer-container 
-        div.footer-content JUSTO PAGO | CALLE 1D # 56-175 | 374778 - 3185946378 CALI
+  //
+    div.footer-container 
+      div.footer-content JUSTO PAGO | CALLE 1D # 56-175 | 374778 - 3185946378 CALI
 
 
             
