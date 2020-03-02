@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    link(href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet")
     style
       include template.css
   body
@@ -43,29 +43,36 @@ html
 
             div.factura-left-container
               div.factura-subtitle Facturado a:
-              div.factura-important-info #{user.name}
-              div.factura-content CC #{user.id}
-              div.factura-content
-                div.icons-container 
-                  img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fphone.png?alt=media&token=41e6b4c4-8dfe-4c23-8009-c5ab2c68dd1b')
-                div #{user.phone} 
 
-              div.factura-content
-                div.icons-container 
-                    img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fsite.png?alt=media&token=84c8f573-6c31-4aa0-9594-2a1ac5b7137d')
-                div #{property.direction}, Colombia 
+              div
+                div.factura-important-info #{user.name}
+                div.factura-content CC #{user.id}
               
-              div.factura-content  
-                div.icons-container 
-                    img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fmail.png?alt=media&token=0af24222-cafe-4fd9-858d-c3759b7faaac')
-                div #{user.email}
+              div
+                div.factura-content
+                  div.icons-container 
+                    img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fphone.png?alt=media&token=41e6b4c4-8dfe-4c23-8009-c5ab2c68dd1b')
+                  div #{user.phone} 
+
+                div.factura-content
+                  div.icons-container 
+                      img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fsite.png?alt=media&token=84c8f573-6c31-4aa0-9594-2a1ac5b7137d')
+                  div #{property.direction}, Colombia 
+                
+                div.factura-content  
+                  div.icons-container 
+                      img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fmail.png?alt=media&token=0af24222-cafe-4fd9-858d-c3759b7faaac')
+                  div #{user.email}
 
             div.factura-right-container
-              div.factura-subtitle Fecha de elaboración:
-              div.factura-important-info #{currentDate}
-              div.factura-subtitle-supervisor Supervisor a cargo:
-              div.factura-important-info NOMBRE DEL SUPERVISOR
-              div.factura-subtitle CC del supervisor
+              div
+                div.factura-subtitle Fecha de elaboración:
+                div.factura-important-info #{currentDate}
+              
+              div
+                div.factura-subtitle-supervisor Inmueble:
+                div.factura-important-info #{service.metadata.property.nickname}
+                div.factura-subtitle #{property.direction}
 
       div.body-content
 
@@ -90,14 +97,22 @@ html
               img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fshield.png?alt=media&token=7111725e-08ab-4130-bc89-509a86654e5a')
             div.service-text-container 
               div.service-text-title Garantía
-              div.service-text-info 2 Meses
+              div.service-text-info #{service.state.warranty_date}
 
           div.service-info-container 
             div.icons-container 
               img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Femergency.png?alt=media&token=9de475af-b42e-4f3c-b7da-341b93c74149')
             div.service-text-container 
               div.service-text-title Tipo de urgencia
-              div.service-text-info Media
+              div.service-text-info 
+                if service.request.priority === 0
+                  div Media
+                else if service.request.priority === 1
+                  div Alta
+                else if service.request.priority === 2
+                  div Prioritaria
+                else
+                  div Sin definir
 
         div.cotizacion-title Detalles de la Cotización
 
@@ -105,10 +120,10 @@ html
             //TEABLE HEADER
             tr
               th 
-                div.table-header-container No.
-              each column in tableHeader
+                div(class='table-header-container nro-table-title') No.
+              each column,index in tableHeader
                 th
-                  div.table-header-container-right #{column}
+                  div(class=`table-header-container-right ${index + 1=== tableHeader.length ? 'last-header-element' : ''}`) #{column}
             each item,index in items
               tr
                 td #{index+1}
@@ -130,64 +145,92 @@ html
                     div.materiales-container $#{i}
                 td
                   each i in item.valoresTotal
-                    div.valor-total $#{i}          
+                    div.valor-total $#{i} 
+        div.bottom-bar   
                 
         //ADITIONAL INFO
         div.aditional-info-container
 
           //OBSERVACIONES INFO
           div.observaciones-container
-            div.aditional-info-subtitle Observaciones:
+            div.container-subtitle
+              div.subtitle-icon 
+                img(src="https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fobservaciones.png?alt=media&token=4f111c69-0dbb-40e5-a490-677a53836d3e")
+              div.aditional-info-subtitle Observaciones:
             div.observaciones-big-content De acuerdo a nuestra razón social y objeto comercial para retenciones, en caso tal apliquen las siguientes tarifas:
-            div.observaciones-content #[span Reteica:] 3.3 por $1.000
-            div.observaciones-content #[span Retefuente:] 2%
+            div.observaciones-content-container
+              div.observaciones-content #[span Reteica:] 3.3 por $1.000
+              div.observaciones-content #[span Retefuente:] 2%
           
           //PRICE INFO
           div.price-info-container
 
             div.price-item-container
               div.price-item-title Mano de obra:
-              div.price-item-amount $0
+              div.price-item-amount $ #{workforceTotal}
 
             div.price-item-container
               div.price-item-title Subtotal: 
-              div.price-item-amount #{subtotal}
+              div.price-item-amount $ #{subtotal}
 
             div.price-item-container
               div.price-item-title Descuento: 
-              div.price-item-amount $0
+              div.price-item-amount $ #{discountTotal}
 
             div.price-item-container
               div.price-item-title Base AIU: 
-              div.price-item-amount $8,284
+              div.price-item-amount $ #{aiuTotal}
 
             div.price-item-container
-              div.price-item-title IVA 19%:
-              div.price-item-amount $0
-
-            //div.price-item-container
-              div.price-item-title Imprevistos:
-              div.price-item-amount $0
+              div.price-item-title IVA #{ivaProcent}%:
+              div.price-item-amount $ #{ivaByAiuTotal}
+            
+            div(class='price-item-container top-border-total')
+              div.total-price-text Total
+              dvi.total-price-amount #{total}
           
-          //TOTAL PRICE
-          div.total-price-container
-            div.total-price-text TOTAL A PAGAR
-            dvi.total-price-amount #{total}
 
         //TERMINOS INFO
         
         div.avoid-break
+
           div.terminos-container 
-            div.terminos-title TÉRMINOS DE NEGOCIACIÓN
+            div.container-subtitle
+                div.subtitle-icon 
+                  img(src="https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fterminos.png?alt=media&token=0342d49d-b332-4af3-bda9-f039466bd43e")
+                div.terminos-title Términos de negociación
             div.terminos-item #[span - Vigencia de la cotización:] Treinta (30) días calendario.
             //div.terminos-item #[span - Garantía del servicio prestado:] 6 cantidad de tiempo
             div.terminos-item #[span - Forma de pago:] Transferencia electrónica anticipo del 60% y el otro 40% a la entrega y satisfacción del cliente.
 
           //TRANSFERENCIA INFO
           div.transfrencias-container 
-            div.transferencias-title TRANSFERENCIAS
+            div.container-subtitle
+                div.subtitle-icon 
+                  img(src="https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Ftransferencias.png?alt=media&token=2c3e3faf-e8fb-4ee8-9bc1-78a73a2d08d1")
+                div.transferencias-title Transferencias
             div.transferencias-item Cuenta de ahorros Davivienda
             div.transferencias-item 0570 01657 0390290
+
+          //ANEXOS
+
+        div.anexos-title Anexos
+
+      each item,index in items 
+
+        div.item-label-container
+          div.item-label Item #{index + 1}
+
+        div.anexo-content  
+        
+          div.item-resources 
+            if item.resources !== undefined
+              each resource in item.resources
+                div.resource-container
+                  img(src=resource)
+            else
+              div.empty-resources No hay evidencia
+
 
         //FIRMAS
           div.firmas-contianer 

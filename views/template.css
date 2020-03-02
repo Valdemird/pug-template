@@ -1,6 +1,6 @@
 html,body{
   size: A4;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color:#4e4e4e;
   margin:  auto;
 }
@@ -113,13 +113,13 @@ table {
 
   .header-right-content{
     border-bottom-left-radius: 16px;
-    border-top-left-radius: 16px;
+    /*border-top-left-radius: 16px;*/
     background-color: #fd941b;
     color: white;
     display: flex;
     width: 52%;
     flex-direction: column;
-    padding: 0 5% 20px 3%;
+    padding: 5px 5% 20px 3%;
     height: fit-content;
   }
 
@@ -135,6 +135,7 @@ table {
     display: flex;
     width: 100%;
     font-size: 14px;
+
   }
 
   .factura-left-container,.factura-right-container{ 
@@ -142,15 +143,20 @@ table {
     flex-direction: column;
     width: 50%;
     line-height: 1.7;
+    justify-content: space-between;
   }
+
+  /*
 
   .factura-right-container{ 
     align-items: flex-end;
   }
 
+  */
+
   .factura-subtitle{ 
     font-size: 14px;
-    margin: 5px 0 5px 0;
+    /*margin: 5px 0 0 0;*/
   }
 
   .factura-subtitle-supervisor{ 
@@ -187,7 +193,7 @@ table {
 
   .body-content{ 
     width: 90%;
-    margin: 20px auto 90px auto;
+    margin: 20px auto 0 auto;
   }
 
   .aditional-info-container{
@@ -198,16 +204,21 @@ table {
   }
 
   .observaciones-container{
-    width: 35%;
+    width: 43%;
     display: flex;
     flex-direction: column;
     justify-content: left;
     line-height: 1.4;
+    background-color: #F1F1F1;
+    color: #652D52;
+    border-bottom-right-radius: 7px;
+    padding:3% 5% 3% 2%;
   }
 
   .aditional-info-subtitle{
     font-weight: bold;
     font-size: 14px;
+    
   }
 
   .observaciones-big-content{
@@ -225,11 +236,13 @@ table {
   }
 
   .price-info-container{
-    width: 20%;
-    padding: 0 5% 0 20%;
+    width: 30%;
+    /*padding: 0 5% 0 20%;*/
+    padding-left: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: #652D52;
   }
 
   .price-item-container{
@@ -237,10 +250,11 @@ table {
     width: 100%;
     justify-content: space-between;
     font-size: 14px;
+    font-weight: bold;
   }
 
   .price-item-amount{
-    font-weight: bold;
+    font-weight: normal;
     margin-left: 30px;
   }
 
@@ -270,15 +284,20 @@ table {
     flex-direction: column;
     font-size: 14px;
     line-height: 1.7;
+    width: 50%;
+    color: #652D52;
   }
 
   .transfrencias-container{
-    margin-bottom: 70px;
+    width: 25%;
+    padding-left: 25%;
+    justify-content: center;
   }
 
   .terminos-title,.transferencias-title{
     font-weight: bold;
     margin-bottom: 7px;
+    font-size: 16px;
   }
 
   .terminos-item span, .firma-info{
@@ -362,6 +381,7 @@ table {
 
 .avoid-break{
   break-inside: avoid;
+  display: flex;
 }
 
 .icons-container {
@@ -408,6 +428,85 @@ table {
   text-align: center;
   margin: 40px 0;
 }
+
+.anexos-title{
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #652D52;
+  margin-top: 70px;
+
+}
+
+.item-label-container{
+  width: 100vw;
+  display: flex; 
+  margin-top: 100px;
+}
+
+.item-label{
+  padding: 10px 4% 10px 5% ;
+  background-color: #652D52;
+  color: white;
+  border-radius: 2px;
+}
+
+.item-resources {
+  margin-bottom: 150px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resource-container{
+  max-width: 40%;
+  margin-right: 5px;
+}
+
+.resource-container img{
+  width: 100%;
+}
+
+.bottom-bar{
+  background-color:#652D52;
+  height: 40px;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 0px 0px 7px 7px;
+}
+
+.nro-table-title{
+  border-top-left-radius: 7px;
+}
+
+.last-header-element{
+  border-top-right-radius: 7px;
+}
+
+.anexo-content {
+    width: 90%;
+    margin: 20px auto 90px auto;
+}
+
+.observaciones-content-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-border-total{
+  border-top: 2px solid #652D52;
+  align-items: center;
+}
+
+.container-subtitle{
+  display: flex;
+}
+
+.subtitle-icon{
+  margin-right: 5px;
+  align-self: center;
+
+}
+
 
 @page {
   margin: 12mm 0 12mm 0;
