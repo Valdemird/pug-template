@@ -34,8 +34,7 @@ app.get('/', function (req, res) {
                     "https://www.lemara.es/wp-content/uploads/2019/02/humedad-techo.jpg",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsGfVVkvEHMPs4ijgeHpPIdQ3fUYt9Z4jwZVD7d3Ses4xcx-6I",
                     "https://www.arquitecturasimple.com/wp-content/uploads/2018/03/C-1024x768.jpg",
-                    "https://grupoparisien.com/wp-content/uploads/2019/01/humedad_paredes.jpg"
-                ]
+                    "https://grupoparisien.com/wp-content/uploads/2019/01/humedad_paredes.jpg"]
             }
         ],
         "total": "309,989.9",
@@ -160,7 +159,10 @@ app.get('/', function (req, res) {
                 "warranty_date": "1 mes"
             }
         },
-        "currentDate": "Lunes, Marzo 2, 2020"
+        "currentDate": "Martes, Marzo 3, 2020",
+        "dateStart": "Domingo, Marzo 8, 2020",
+        "timeStart": "08:00 AM - 06:00 PM",
+        "visitingTime": "Jueves, Febrero 27, 2020"
     }
 
     res.render('template', data);

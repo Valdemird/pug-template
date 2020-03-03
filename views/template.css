@@ -67,6 +67,7 @@ table {
     width: 100%;
     margin-bottom: 5px;
   }
+  
 /*
   .table-header-container:first-child{
     border-top-left-radius: 10px;
@@ -75,6 +76,7 @@ table {
   .table-header-container-right:last-child{
     border-top-right-radius: 10px;
   }
+
  */ 
   
   tr:nth-child(even) {
@@ -289,9 +291,9 @@ table {
   }
 
   .transfrencias-container{
-    width: 25%;
-    padding-left: 25%;
     justify-content: center;
+    width: 20%;
+    padding-left: 40%;
   }
 
   .terminos-title,.transferencias-title{

@@ -53,11 +53,11 @@ html
                   div.icons-container 
                     img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fphone.png?alt=media&token=41e6b4c4-8dfe-4c23-8009-c5ab2c68dd1b')
                   div #{user.phone} 
-
-                div.factura-content
-                  div.icons-container 
-                      img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fsite.png?alt=media&token=84c8f573-6c31-4aa0-9594-2a1ac5b7137d')
-                  div #{property.direction}, Colombia 
+                //
+                  div.factura-content
+                    div.icons-container 
+                        img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fsite.png?alt=media&token=84c8f573-6c31-4aa0-9594-2a1ac5b7137d')
+                    div #{property.direction}, Colombia 
                 
                 div.factura-content  
                   div.icons-container 
@@ -83,14 +83,14 @@ html
               img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Fdate.png?alt=media&token=865472c1-7b67-44e0-9a77-e5c159c3d547')
             div.service-text-container 
               div.service-text-title Fecha de visita
-              div.service-text-info 23/02/20
+              div.service-text-info #{visitingTime}
           
           div.service-info-container 
             div.icons-container 
               img(src='https://firebasestorage.googleapis.com/v0/b/justo-pago.appspot.com/o/icons_pdf%2Ftime.png?alt=media&token=61f35c9d-c083-4816-b1f6-0b54dffad2c8')
             div.service-text-container 
               div.service-text-title Tiempo de ejecución
-              div.service-text-info 2 dias - 16 horas
+              div.service-text-info #{timeStart}
 
           div.service-info-container 
             div.icons-container 
